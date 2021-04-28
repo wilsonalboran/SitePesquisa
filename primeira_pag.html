@@ -1,0 +1,40 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>João Victor Cordeiro - Exercicio Página de Pesquisa</title>
+</head>
+
+<body>
+
+    <h1>Conte-nos mais sobre você</h1>
+    
+    <form action = "segunda_pag.html">
+        
+        <label for="nome">Qual seu nome?</label><br/>
+        <input type="text" id="nome" name="nome" placeholder = "Digite aqui o seu nome" required><br/>
+
+        <br/>
+        <label for="primeira_pergunta">Quais seus jogos favoritos?:</label><br/>
+        <textarea id="primeira_pergunta" name="primeira_pergunta" rows="5" cols="50" placeholder = "Digite aqui sua resposta" required></textarea>
+        <br/>
+
+        <br/><input type="submit" value="Continuar" onclick="primeira_pag()">
+    </form>
+
+    
+
+</body>
+
+<script>
+    function primeira_pag() {
+            localStorage.setItem("primeira_resposta", document.getElementById("primeira_pergunta").value);
+            localStorage.setItem("nome", document.getElementById("nome").value);
+        }
+
+
+        document.getElementById("primeira_pergunta").value = localStorage.getItem("primeira_resposta");
+        document.getElementById("nome").value = localStorage.getItem("nome");
+</script>
+
+</html>

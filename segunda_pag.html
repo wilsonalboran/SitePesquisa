@@ -1,0 +1,86 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>João Victor Cordeiro - Exercicio Página de Pesquisa</title>
+</head>
+
+<body>
+
+    <h1>Que tipo de jogos você prefere?</h1>
+
+    <form id="options">
+        <input type="radio" name="opcao" id="opcao1" value="Aventura" onclick="func(); toggle('opcao1')"> Eu prefiro jogos de Aventura
+        <br/>
+        <input type="radio" name="opcao" id="opcao2" value="Estrategia" onclick="func(); toggle('opcao2')"> Eu prefiro jogos de Estratégia
+        <br/>
+        
+        <br/>
+        <textarea id="segunda_pergunta" name="segunda_pergunta" rows="5" cols="50" placeholder="O que você mais gosta sobre jogos de aventura??"
+            ></textarea>
+
+        <textarea id="segunda_pergunta2" name="segunda_pergunta2" rows="5" cols="50" placeholder="Quais jogos de Estratégia você recomendaria para um amigo?"
+            ></textarea>
+
+        
+        <br/>
+        <br/>
+        <input type="button" value="Continuar" onclick="func(); window.location.href = 'terceira_pag.html';">
+        
+    </form>
+
+    <input type="button" value="Voltar" onclick="func(); window.location.href = 'primeira_pag.html';">
+
+</body>
+
+<script>
+
+    function func(){
+        var options = document.getElementById('options')
+        
+        for (let i = 0; i < options.length; i++){
+            if (options[i].checked == true){
+                localStorage.setItem("opcao", i+1);
+            }
+        }
+        localStorage.setItem("segunda_resposta", document.getElementById("segunda_pergunta").value);
+        localStorage.setItem("segunda_resposta2", document.getElementById("segunda_pergunta2").value);
+    }
+
+    function toggle(value){
+        if (value == 'opcao1'){
+            document.getElementById('segunda_pergunta').style.visibility = 'visible';
+            document.getElementById('segunda_pergunta2').style.visibility = 'hidden';
+        } 
+        else if (value == 'opcao2'){
+            document.getElementById('segunda_pergunta').style.visibility = 'hidden';
+            document.getElementById('segunda_pergunta2').style.visibility = 'visible';
+        }
+        else{
+            document.getElementById('segunda_pergunta').style.visibility = 'hidden';
+            document.getElementById('segunda_pergunta2').style.visibility = 'hidden';
+        }      
+    } 
+
+    id_checked = localStorage.getItem('opcao')
+
+    if (id_checked == 1){
+        toggle('opcao1')
+    }
+    else if (id_checked == 2){
+        toggle('opcao2')
+    }
+    else{
+        toggle('')
+    }
+
+    document.getElementById('options')[id_checked-1].checked = true
+    document.getElementById("segunda_pergunta").value = localStorage.getItem("segunda_resposta");
+    document.getElementById("segunda_pergunta2").value = localStorage.getItem("segunda_resposta2");
+    
+
+
+</script>
+
+</html>
+

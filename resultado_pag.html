@@ -1,0 +1,51 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>João Victor Cordeiro - Exercicio Página de Pesquisa</title>
+</head>
+
+<script>
+    var primeira_resposta = localStorage.getItem("primeira_resposta");
+    var nome = localStorage.getItem("nome");
+    var id_opcao = localStorage.getItem('opcao')
+
+    if (id_opcao == 1){
+        var segunda_opcao = "Aventura"
+    }
+    else if(id_opcao == 2){
+        var segunda_opcao = "Estratégia"
+    }
+
+    if (id_opcao == 1) {
+        var segunda_resposta = "Coisas que você mais gosta em jogos de ação:" + localStorage.getItem("segunda_resposta");
+    }
+    else if (id_opcao == 2) {
+        var segunda_resposta = "Jogos de Estrategia que você recomendaria para amigos:" + localStorage.getItem("segunda_resposta2");
+    }
+
+    var opcao = localStorage.getItem('select_options')
+
+</script>
+
+<body>
+
+    <h1>Confira suas respostas:  <span id="resultados"></span></h1>
+
+    <p>
+        <br/>Seu nome é: <script>document.write(nome)</script>
+        <br/>Seus jogos favoritos: <script>document.write(primeira_resposta)</script>
+        <br/>Você prefere jogos de: <script>document.write(segunda_opcao)</script>
+        <br/><script>document.write(segunda_resposta)</script>
+        <br/>Outro gênero que voce gostaria de conhecer mais: <script>document.write(opcao)</script>
+    </p>
+
+    <input type="button" value="Voltar" onclick="window.location.href = 'terceira_pag.html';">
+    <input type="button" value="Começar de novo" onclick="localStorage.clear(); window.location.href = 'primeira_pag.html';">
+
+
+</body>
+
+
+
+</html>

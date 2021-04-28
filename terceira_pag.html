@@ -1,0 +1,45 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>João Victor Cordeiro - Exercicio Página de Pesquisa</title>
+</head>
+
+<body>
+    <h1>Que outro gênero de jogo você gostaria de conhecer mais?</h1>
+
+    <form id="options">
+
+        <select id = "select_options" name="select_options">
+            <option value="RPG">RPG</option>
+            <option value="MOBA">MOBA</option>
+            <option value="First Person Shooters">First Person Shooters</option>
+            <option value="Battle Royale">Battle Royale</option>
+        </select>
+        <br/>
+
+
+        <br/>
+        <br/>
+        <input type="button" value="Continuar" onclick="save(); window.location.href = 'resultado_pag.html';">
+
+    </form>
+
+    <input type="button" value="Voltar" onclick="save(); window.location.href = 'segunda_pag.html';">
+
+</body>
+
+<script>
+
+    function save(){
+        input = document.getElementById('select_options');
+        localStorage.setItem('select_options', input.value);
+    }
+
+    document.getElementById('select_options').value = localStorage.getItem('select_options')
+
+    
+
+</script>
+
+</html>
