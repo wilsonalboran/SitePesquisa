@@ -9,7 +9,7 @@
 
     <h1>Conte-nos mais sobre você</h1>
     
-    <form action = "segunda_pag.html">
+    <form>
         
         <label for="nome">Qual seu nome?</label><br/>
         <input type="text" id="nome" name="nome" placeholder = "Digite aqui o seu nome" required><br/>
@@ -19,7 +19,7 @@
         <textarea id="primeira_pergunta" name="primeira_pergunta" rows="5" cols="50" placeholder = "Digite aqui sua resposta" required></textarea>
         <br/>
 
-        <br/><input type="submit" value="Continuar" onclick="primeira_pag()">
+        <br/><input type="button" value="Continuar" onclick="primeira_pag(); window.location.href = 'segunda_pag.html';">
     </form>
 
     
