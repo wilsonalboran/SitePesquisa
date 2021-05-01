@@ -16,15 +16,20 @@
     else if(id_opcao == 2){
         var segunda_opcao = "Estratégia"
     }
+    else{
+        var segunda_opcao = "Não foi respondida"
+    }
 
+    var segunda_resposta = localStorage.getItem("segunda_resposta") || "A 2ª pergunta não foi respondida"
     if (id_opcao == 1) {
-        var segunda_resposta = "Coisas que você mais gosta em jogos de ação:" + localStorage.getItem("segunda_resposta");
+        var segunda_resposta = "Coisas que você mais gosta em jogos de ação: " + segunda_resposta
     }
     else if (id_opcao == 2) {
-        var segunda_resposta = "Jogos de Estrategia que você recomendaria para amigos:" + localStorage.getItem("segunda_resposta2");
+        var segunda_resposta = "Jogos de Estrategia que você recomendaria para amigos: " + segunda_resposta
     }
+    
 
-    var opcao = localStorage.getItem('select_options')
+    var opcao = localStorage.getItem('select_options') || "Não foi respondida"
 
 </script>
 
